@@ -2,6 +2,7 @@ import React from 'react';
 import { Sidebar } from './Sidebar';
 import { Header } from './Header';
 import { SprintSummary } from './SprintSummary';
+import { QuickFilterBar } from './QuickFilterBar';
 import { TaskModal } from '../kanban/TaskModal';
 
 interface AppLayoutProps {
@@ -21,6 +22,9 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
 
         {/* Sprint Summary Bar */}
         <SprintSummary />
+
+        {/* Quick Filter Bar */}
+        <QuickFilterBar />
 
         {/* Scrollable Main Board Area */}
         <main className="flex-1 overflow-x-auto overflow-y-hidden p-6 bg-[#090d16]">

@@ -154,6 +154,28 @@ export const KanbanBoard: React.FC = () => {
       onDragStart={handleDragStart}
       onDragOver={handleDragOver}
       onDragEnd={handleDragEnd}
+      accessibility={{
+        announcements: {
+          onDragStart({ active }) {
+            const task = tasks.find((t) => t.id === active.id);
+            return `Has seleccionado la tarjeta ${task?.code || active.id}: ${task?.title || ''}. Usa las teclas de flecha para moverla.`;
+          },
+          onDragOver({ active, over }) {
+            if (!over) return '';
+            const task = tasks.find((t) => t.id === active.id);
+            return `La tarjeta ${task?.code || active.id} se ha movido sobre el destino ${over.id}.`;
+          },
+          onDragEnd({ active, over }) {
+            if (!over) return 'El movimiento fue cancelado.';
+            const task = tasks.find((t) => t.id === active.id);
+            return `La tarjeta ${task?.code || active.id} ha sido soltada exitosamente.`;
+          },
+          onDragCancel({ active }) {
+            const task = tasks.find((t) => t.id === active.id);
+            return `El movimiento de la tarjeta ${task?.code || active.id} fue cancelado.`;
+          },
+        },
+      }}
     >
       <div className="h-full flex flex-col">
         {/* Mobile Column Tab Switcher (Visible below 640px) */}

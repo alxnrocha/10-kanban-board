@@ -31,7 +31,11 @@ export const KanbanColumn: React.FC<KanbanColumnProps> = ({
   };
 
   return (
-    <div className="w-full sm:w-80 shrink-0 flex flex-col max-h-full rounded-2xl bg-[#0c1220] border border-[#1a2336] p-3 shadow-md select-none">
+    <div
+      role="region"
+      aria-label={`Columna ${column.title}, ${tasks.length} tareas, ${totalPoints} story points`}
+      className="w-full sm:w-80 shrink-0 flex flex-col max-h-full rounded-2xl bg-[#0c1220] border border-[#1a2336] p-3 shadow-md select-none"
+    >
       {/* Column Header */}
       <div className="flex items-center justify-between px-1.5 py-1 mb-3">
         <div className="flex items-center gap-2.5">

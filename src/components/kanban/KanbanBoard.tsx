@@ -1,6 +1,7 @@
 import React from 'react';
 import { useKanbanStore } from '../../store/kanbanStore';
 import { KanbanColumn } from './KanbanColumn';
+import { TaskCard } from './TaskCard';
 
 export const KanbanBoard: React.FC = () => {
   const { columns, tasks, filters } = useKanbanStore();
@@ -50,20 +51,7 @@ export const KanbanBoard: React.FC = () => {
         return (
           <KanbanColumn key={column.id} column={column} tasks={columnTasks}>
             {columnTasks.map((task) => (
-              <div
-                key={task.id}
-                className="p-3 bg-[#131c31] border border-[#1f2c47] rounded-xl hover:border-slate-600 transition-all cursor-pointer"
-              >
-                <div className="flex items-center justify-between text-xs mb-1">
-                  <span className="font-mono text-[11px] text-slate-400 font-semibold">
-                    {task.code}
-                  </span>
-                  <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-slate-800 text-slate-300">
-                    {task.type}
-                  </span>
-                </div>
-                <h4 className="text-xs font-semibold text-white leading-snug">{task.title}</h4>
-              </div>
+              <TaskCard key={task.id} task={task} />
             ))}
           </KanbanColumn>
         );

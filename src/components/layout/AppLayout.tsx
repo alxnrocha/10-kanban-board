@@ -2,6 +2,7 @@ import React from 'react';
 import { Sidebar } from './Sidebar';
 import { Header } from './Header';
 import { SprintSummary } from './SprintSummary';
+import { TaskModal } from '../kanban/TaskModal';
 
 interface AppLayoutProps {
   children: React.ReactNode;
@@ -26,6 +27,9 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
           {children}
         </main>
       </div>
+
+      {/* Task Create/Edit Modal Drawer */}
+      <TaskModal />
     </div>
   );
 };

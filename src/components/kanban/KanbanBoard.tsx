@@ -16,12 +16,14 @@ import { useKanbanStore } from '../../store/kanbanStore';
 import { DroppableColumn } from './DroppableColumn';
 import { TaskCard } from './TaskCard';
 import type { Task } from '../../types/kanban';
+import { cn } from '../../utils/cn';
 
 export const KanbanBoard: React.FC = () => {
   const { columns, tasks, filters, moveTask, reorderTaskInColumn } = useKanbanStore();
   const [activeTask, setActiveTask] = useState<Task | null>(null);
+  const [activeMobileColumnId, setActiveMobileColumnId] = useState<string>('col-todo');
 
-  // Setup sensors with activation constraint to distinguish click from drag
+  // Setup sensors with activation constraint
   const sensors = useSensors(
     useSensor(PointerSensor, {
       activationConstraint: {
@@ -86,7 +88,6 @@ export const KanbanBoard: React.FC = () => {
 
     if (!isActiveTask) return;
 
-    // Moving over another task in a different column
     if (isOverTask) {
       const activeTaskItem = tasks.find((t) => t.id === activeId);
       const overTaskItem = tasks.find((t) => t.id === overId);
@@ -101,7 +102,6 @@ export const KanbanBoard: React.FC = () => {
       }
     }
 
-    // Moving over an empty column
     if (isOverColumn) {
       const activeTaskItem = tasks.find((t) => t.id === activeId);
       if (activeTaskItem && activeTaskItem.columnId !== overId) {
@@ -155,14 +155,61 @@ export const KanbanBoard: React.FC = () => {
       onDragOver={handleDragOver}
       onDragEnd={handleDragEnd}
     >
-      <div className="h-full flex gap-5 overflow-x-auto pb-4 kanban-scroll items-start select-none">
-        {columns.map((column) => {
-          const columnTasks = filteredTasks
-            .filter((t) => t.columnId === column.id)
-            .sort((a, b) => a.position - b.position);
+      <div className="h-full flex flex-col">
+        {/* Mobile Column Tab Switcher (Visible below 640px) */}
+        <div className="sm:hidden flex items-center gap-1.5 overflow-x-auto pb-3 mb-2 kanban-scroll shrink-0">
+          {columns.map((col) => {
+            const colTasks = filteredTasks.filter((t) => t.columnId === col.id);
+            const isActive = activeMobileColumnId === col.id;
 
-          return <DroppableColumn key={column.id} column={column} tasks={columnTasks} />;
-        })}
+            return (
+              <button
+                key={col.id}
+                onClick={() => setActiveMobileColumnId(col.id)}
+                className={cn(
+                  'flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold shrink-0 transition-all border cursor-pointer',
+                  isActive
+                    ? 'bg-indigo-600 text-white border-indigo-500 shadow-sm shadow-indigo-950'
+                    : 'bg-[#111726] text-slate-400 border-[#1e2a44] hover:text-slate-200'
+                )}
+              >
+                <span>{col.title}</span>
+                <span
+                  className={cn(
+                    'text-[10px] px-1.5 py-0.2 rounded-full font-bold',
+                    isActive ? 'bg-indigo-900/80 text-indigo-200' : 'bg-slate-800 text-slate-400'
+                  )}
+                >
+                  {colTasks.length}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Board Columns Grid */}
+        <div className="flex-1 flex gap-5 overflow-x-auto pb-4 kanban-scroll items-start select-none">
+          {columns.map((column) => {
+            const columnTasks = filteredTasks
+              .filter((t) => t.columnId === column.id)
+              .sort((a, b) => a.position - b.position);
+
+            const isMobileHidden = activeMobileColumnId !== column.id;
+
+            return (
+              <div
+                key={column.id}
+                className={cn(
+                  'h-full flex flex-col shrink-0',
+                  'w-full sm:w-80',
+                  isMobileHidden && 'hidden sm:flex'
+                )}
+              >
+                <DroppableColumn column={column} tasks={columnTasks} />
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       {/* Floating Drag Overlay */}

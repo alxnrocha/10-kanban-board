@@ -82,12 +82,24 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task, isDragging = false }) 
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      selectTask(task.id);
+    }
+  };
+
   return (
     <div
+      role="button"
+      tabIndex={0}
       onClick={() => selectTask(task.id)}
+      onKeyDown={handleKeyDown}
+      aria-label={`Tarjeta ${task.code}: ${task.title}, Tipo ${task.type}, Prioridad ${task.priority}, ${task.storyPoints} story points`}
       className={cn(
         'group bg-[#131c31] border border-[#1e2c47] rounded-xl p-3.5 shadow-sm transition-all duration-150 cursor-pointer select-none',
         'hover:border-slate-600 hover:bg-[#16213a] hover:shadow-md hover:shadow-black/50',
+        'focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none',
         isDragging && 'card-dragging'
       )}
     >

@@ -14,22 +14,6 @@
 
 ---
 
-## 📸 Vistas Reales del Sistema
-
-### 1. Vista Principal del Tablero (Desktop)
-
-![Vista de Escritorio](./docs/screenshots/desktop-preview.png)
-
-### 2. Panel Lateral de Tarea & Checklist de Subtareas
-
-![Modal de Edición](./docs/screenshots/modal-preview.png)
-
-### 3. Experiencia Responsive (Móvil)
-
-![Vista Móvil](./docs/screenshots/mobile-preview.png)
-
----
-
 ## ✨ Características Principales
 
 ### 🚀 Experiencia de Usuario & Frontend

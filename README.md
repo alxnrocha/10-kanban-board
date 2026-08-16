@@ -40,10 +40,6 @@
 │   ├── README.md
 │   ├── schema.sql
 │   └── seed.sql
-├── docs/screenshots/              # Capturas de pantalla reales
-│   ├── desktop-preview.png
-│   ├── modal-preview.png
-│   └── mobile-preview.png
 ├── src/
 │   ├── components/
 │   │   ├── kanban/                # KanbanBoard, KanbanColumn, TaskCard, TaskModal

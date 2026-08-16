@@ -1,187 +1,121 @@
-# DevFlow Kanban — Tablero Ágil de Alta Fidelidad
+# DevFlow Kanban — Tablero Ágil de Gestión de Proyectos
 
-[![CI Pipeline](https://github.com/alxnrocha/10-kanban-board/actions/workflows/ci.yml/badge.svg)](https://github.com/alxnrocha/10-kanban-board/actions/workflows/ci.yml)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg?logo=typescript)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React-19.x-61DAFB.svg?logo=react)](https://react.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC.svg?logo=tailwind-css)](https://tailwindcss.com/)
-[![Zustand](https://img.shields.io/badge/State-Zustand_5-443e38.svg)](https://github.com/pmndrs/zustand)
-[![dnd--kit](https://img.shields.io/badge/DnD-@dnd--kit-ff5e00.svg)](https://dndkit.com/)
-[![Vitest](https://img.shields.io/badge/Testing-Vitest-6E9F18.svg?logo=vitest)](https://vitest.dev/)
-[![Oxlint](https://img.shields.io/badge/Linter-Oxlint-orange.svg)](https://oxc-project.github.io/)
+[![CI & Deploy](https://github.com/alxnrocha/kanban-board/actions/workflows/ci.yml/badge.svg)](https://github.com/alxnrocha/kanban-board/actions)
+[![Demo GitHub Pages](https://img.shields.io/badge/Demo-GitHub_Pages-22c55e?style=for-the-badge&logo=github&logoColor=white)](https://alxnrocha.github.io/kanban-board/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue.svg)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-19.2-61dafb.svg)](https://react.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-38bdf8.svg)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
-**DevFlow Kanban** es una aplicación web moderna de gestión de proyectos y seguimiento ágil de tareas diseñada con una estética visual oscura inmersiva, inspirada en las herramientas de desarrollo más avanzadas (Linear, Jira, GitHub Projects).
+**DevFlow Kanban** es una aplicación web moderna y reactiva de gestión ágil de proyectos inspirada en herramientas de alta gama como Linear y GitHub Projects. Incorpora arrastre fluido Drag & Drop (@dnd-kit), gestión de subtareas con barra de progreso, filtros rápidos, persistencia local y diseño relacional SQL.
 
-Cuenta con arrastre interactivo (Drag & Drop), soporte de subtareas con barra de progreso reactiva, filtrado avanzado multinivel, navegación responsiva para dispositivos móviles, persistencia en \`localStorage\` y un esquema de base de datos relacional MySQL 8.4 LTS listo para producción.
+- 🌐 **Demo en Vivo (GitHub Pages):** [https://alxnrocha.github.io/kanban-board/](https://alxnrocha.github.io/kanban-board/)
+- 📦 **Repositorio GitHub:** [https://github.com/alxnrocha/kanban-board](https://github.com/alxnrocha/kanban-board)
 
 ---
 
-## 📸 Capturas de Pantalla
+## 📸 Vistas Reales del Sistema
 
-### Vista de Escritorio (Tablero Principal)
+### 1. Vista Principal del Tablero (Desktop)
 
-![Vista de Escritorio](docs/screenshots/desktop-preview.png)
+![Vista de Escritorio](./docs/screenshots/desktop-preview.png)
 
-### Edición y Checklist de Subtareas (Drawer Lateral)
+### 2. Panel Lateral de Tarea & Checklist de Subtareas
 
-![Modal de Edición](docs/screenshots/modal-preview.png)
+![Modal de Edición](./docs/screenshots/modal-preview.png)
 
-### Navegación Responsiva en Dispositivos Móviles
+### 3. Experiencia Responsive (Móvil)
 
-![Vista Móvil](docs/screenshots/mobile-preview.png)
+![Vista Móvil](./docs/screenshots/mobile-preview.png)
 
 ---
 
 ## ✨ Características Principales
 
-- 🎯 **Fidelidad Visual Pixel-Perfect:** Diseñado a partir de maquetas de alta precisión con modo oscuro profundo (\`#090d16\`), paleta curada y microinteracciones de 60fps.
-- 🔄 **Motor Drag and Drop (@dnd-kit):** Movimiento fluido de tarjetas entre columnas y reordenamiento vertical con elevación visual (\`DragOverlay\`) y restricciones de puntero.
-- 📊 **Resumen del Sprint en Vivo:** Cálculo dinámico de métricas (Tareas totales, completadas, Story Points acumulados \`89/120\` y barra de progreso porcentual).
-- 📝 **Gestión de Tareas y Subtareas:**
-  - Categorización por tipos (\`Feature\`, \`Bug\`, \`Task\`, \`Refactor\`).
-  - Indicadores de prioridad (\`Urgente\`, \`Alta\`, \`Media\`, \`Baja\`).
-  - Asignación de Story Points según serie Fibonacci.
-  - Checklist interactivo con tachado instantáneo y cálculo de progreso (\`3/5\`).
-- 🔍 **Búsqueda y Filtros Rápidos:**
-  - Búsqueda por texto en títulos, códigos y etiquetas con atajo de teclado (\`⌘ K\` / \`Ctrl+K\`).
-  - Filtros en un clic (\`Mis tareas\`, \`Features\`, \`Bugs\`, \`Alta Prioridad\`).
-  - Popover para filtros avanzados combinados.
-- 📱 **Navegación Móvil Adaptativa (<520px):** Selector horizontal de pestañas de columnas para pantallas estrechas, garantizando usabilidad completa en smartphones.
-- ♿ **Accesibilidad Integral (a11y):** Anuncios interactivos en español para lectores de pantalla (\`aria-live\`), navegación mediante teclado (\`Enter\` / \`Space\`) y anillos de foco de alto contraste.
-- 💾 **Persistencia Reactiva:** Sincronización automática de estado con \`localStorage\` y opción de restauración de datos de prueba (\`Restablecer demo\`).
+### 🚀 Experiencia de Usuario & Frontend
+- **Motor Drag & Drop (@dnd-kit):** Movimiento fluido de tarjetas entre columnas y reordenamiento vertical con elevación visual (`DragOverlay`) y restricciones de puntero.
+- **Resumen del Sprint en Vivo:** Cálculo dinámico de métricas (Tareas totales, completadas, Story Points acumulados `89/120` y barra de progreso porcentual).
+- **Gestión de Tareas y Subtareas:** Tipos (`Feature`, `Bug`, `Task`, `Refactor`), prioridades (`Urgente`, `Alta`, `Media`, `Baja`), Story Points Fibonacci y checklist interactivo.
+- **Búsqueda Rápida & Filtros:** Búsqueda en tiempo real con atajo de teclado (`⌘ K` / `Ctrl+K`) y filtros en 1 clic (`Mis tareas`, `Features`, `Bugs`, `Alta Prioridad`).
+- **Navegación Móvil Adaptativa:** Selector horizontal de pestañas de columnas para smartphones (<520px).
+- **Persistencia en LocalStorage:** Sincronización automática de estado mediante Zustand Persist con opción de reinicio de demo.
+
+### 🛡️ Modelo de Base de Datos Relacional
+- Esquema relacional 3NF completo compatible con MySQL 8.4 LTS en [`database/README.md`](./database/README.md) con 9 tablas (`users`, `teams`, `projects`, `sprints`, `columns`, `tasks`, `subtasks`, `tags`).
 
 ---
 
-## 🛠️ Stack Tecnológico
+## 🏛️ Estructura del Proyecto
 
-| Capa                 | Tecnología                              | Propósito                                    |
-| :------------------- | :-------------------------------------- | :------------------------------------------- |
-| **Framework**        | React 19 + TypeScript                   | Interfaz declarativa y tipado estricto       |
-| **Build Tool**       | Vite 8                                  | Servidor de desarrollo instantáneo y HMR     |
-| **Estilos**          | Tailwind CSS v4                         | Diseño CSS-first y tokens de diseño oscuros  |
-| **Iconografía**      | Lucide React                            | Iconos vectoriales coherentes                |
-| **Estado Global**    | Zustand v5 + Persist                    | Store reactivo ligero con persistencia local |
-| **Drag and Drop**    | @dnd-kit (Core, Sortable, Utilities)    | Arrastre accesible y de alto rendimiento     |
-| **Testing**          | Vitest + React Testing Library + jsdom  | Suite de pruebas unitarias y de integración  |
-| **Linter / Formato** | Oxlint + Prettier + Husky + lint-staged | Calidad de código y validación pre-commit    |
-| **Base de Datos**    | MySQL 8.4 LTS (Schema + Seed)           | Modelo relacional 3NF con 9 tablas           |
-| **CI/CD**            | GitHub Actions                          | Pipeline de validación continua              |
-
----
-
-## 📂 Estructura del Proyecto
-
-\`\`\`
+```text
 10-kanban-board/
-├── .github/
-│ └── workflows/
-│ └── ci.yml # Pipeline de integración continua
-├── database/
-│ ├── schema.sql # Esquema relacional MySQL (9 tablas)
-│ ├── seed.sql # Datos de prueba para el sprint activo
-│ └── README.md # Documentación del modelo de base de datos
-├── docs/
-│ └── screenshots/ # Capturas de pantalla de la aplicación
+├── .github/workflows/ci.yml       # Pipeline de CI y Deploy automático en Pages
+├── database/                      # Esquema relacional SQL (MySQL 8.4 LTS)
+│   ├── README.md
+│   ├── schema.sql
+│   └── seed.sql
+├── docs/screenshots/              # Capturas de pantalla reales
+│   ├── desktop-preview.png
+│   ├── modal-preview.png
+│   └── mobile-preview.png
 ├── src/
-│ ├── components/
-│ │ ├── kanban/ # Tablero, columnas, tarjetas y modal
-│ │ │ ├── DraggableTaskCard.tsx
-│ │ │ ├── DroppableColumn.tsx
-│ │ │ ├── KanbanBoard.tsx
-│ │ │ ├── KanbanColumn.tsx
-│ │ │ ├── TaskCard.tsx
-│ │ │ └── TaskModal.tsx
-│ │ ├── layout/ # Shell, cabecera, sidebar y filtros
-│ │ │ ├── AppLayout.tsx
-│ │ │ ├── Header.tsx
-│ │ │ ├── QuickFilterBar.tsx
-│ │ │ ├── Sidebar.tsx
-│ │ │ └── SprintSummary.tsx
-│ │ └── ui/ # Primitivas de interfaz reutilizables
-│ │ ├── Badge.tsx
-│ │ ├── Button.tsx
-│ │ ├── Card.tsx
-│ │ ├── Dialog.tsx
-│ │ ├── Input.tsx
-│ │ └── Textarea.tsx
-│ ├── store/
-│ │ └── kanbanStore.ts # Store global Zustand con persistencia
-│ ├── test/
-│ │ ├── QuickFilterBar.test.tsx
-│ │ ├── TaskCard.test.tsx
-│ │ ├── kanbanStore.test.ts
-│ │ └── setup.ts
-│ ├── types/
-│ │ └── kanban.ts # Definiciones de tipos e interfaces
-│ ├── utils/
-│ │ ├── cn.ts # Utilidad para combinación de clases
-│ │ └── mockData.ts # Dataset realista del sprint
-│ ├── App.tsx
-│ ├── index.css # Directivas Tailwind v4 y estilos base
-│ └── main.tsx
-├── BLUEPRINT.md # Especificación técnica inicial
-├── DECISIONS.md # Registro de decisiones arquitectónicas
-├── package.json
-├── tsconfig.json
-├── vercel.json
-└── vite.config.ts
-\`\`\`
+│   ├── components/
+│   │   ├── kanban/                # KanbanBoard, KanbanColumn, TaskCard, TaskModal
+│   │   ├── layout/                # AppLayout, Header, Sidebar, QuickFilterBar, SprintSummary
+│   │   └── ui/                    # Badge, Button, Card, Dialog, Input, Textarea
+│   ├── store/                     # kanbanStore.ts (Zustand con persistencia)
+│   ├── test/                      # Pruebas unitarias con Vitest
+│   ├── types/                     # Tipos de dominio e interfaces
+│   ├── utils/                     # Utilidades y dataset inicial
+│   ├── App.tsx                    # Shell principal
+│   └── main.tsx                   # Entrada React 19
+├── index.html                     # Entrypoint HTML5
+├── BLUEPRINT.md                   # Especificación técnica
+├── DECISIONS.md                   # Registro de decisiones de arquitectura
+└── vite.config.ts                 # Configuración de Vite y Tailwind v4
+```
 
 ---
 
-## 🚀 Instalación y Ejecución Local
+## ⚡ Guía de Inicio Rápido
 
-### Prerrequisitos
+### 1. Clonar e Instalar Dependencias
+```bash
+git clone https://github.com/alxnrocha/kanban-board.git
+cd kanban-board
+npm install
+```
 
-- Node.js v20+ o v22+
-- npm v10+
-
-### Pasos
-
-1. **Clonar el repositorio:**
-   \`\`\`bash
-   git clone https://github.com/alxnrocha/10-kanban-board.git
-   cd 10-kanban-board
-   \`\`\`
-
-2. **Instalar dependencias:**
-   \`\`\`bash
-   npm install
-   \`\`\`
-
-3. **Iniciar el servidor de desarrollo:**
-   \`\`\`bash
-   npm run dev
-   \`\`\`
-   Abre [http://localhost:5173](http://localhost:5173) en tu navegador.
+### 2. Iniciar en Modo Desarrollo
+```bash
+npm run dev
+```
 
 ---
 
-## 🧪 Scripts Disponibles
+## 🧪 Calidad de Código y Pruebas
 
-- \`npm run dev\`: Inicia el servidor de desarrollo local con Vite.
-- \`npm run build\`: Compila la aplicación y genera los assets optimizados en \`dist/\`.
-- \`npm run lint\`: Ejecuta Oxlint para análisis estático ultra-rápido.
-- \`npm run typecheck\`: Valida tipos en TypeScript sin emitir archivos (\`tsc --noEmit\`).
-- \`npm run test\`: Ejecuta la suite de pruebas unitarias y de integración con Vitest.
-- \`npm run format\`: Formatea todo el código fuente con Prettier.
+```bash
+# Ejecutar suite de pruebas con Vitest
+npm test
 
----
+# Verificación de tipos TypeScript
+npm run typecheck
 
-## 🗄️ Modelo de Base de Datos Relacional
+# Linter Oxlint
+npm run lint
 
-Para entornos de backend o persistencia relacional, se incluye un esquema SQL completo compatible con **MySQL 8.4 LTS** en \`database/schema.sql\`, que incluye tablas para:
+# Formatear código con Prettier
+npm run format
 
-- \`users\`: Usuarios, roles (\`tech_lead\`, \`frontend_dev\`, etc.) y avatares.
-- \`teams\` y \`team_members\`: Agrupación de equipos y membresías.
-- \`projects\`: Proyectos (\`Plataforma Web\`, \`Mobile App\`, \`API Core\`).
-- \`sprints\`: Períodos de iteración (\`Sprint 24\`) y metas de Story Points.
-- \`columns\`: Estados de flujo (\`Backlog\`, \`Por Hacer\`, \`En Progreso\`, \`Revisión\`, \`Completado\`).
-- \`tasks\`: Tareas con código DEV, prioridad, tipo y Story Points.
-- \`subtasks\`: Items de checklist con estado de completitud.
-- \`tags\` y \`task_tags\`: Etiquetas transversales (\`frontend\`, \`backend\`, \`auth\`, etc.).
+# Compilar para producción
+npm run build
+```
 
 ---
 
 ## 📄 Licencia
 
-Este proyecto se distribuye bajo la licencia MIT.
+Este proyecto está bajo la Licencia MIT. Consulte el archivo [LICENSE](./LICENSE) para más detalles.
+
+**Autor:** [Alexandre Rocha](https://github.com/alxnrocha)

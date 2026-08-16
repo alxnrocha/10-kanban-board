@@ -17,6 +17,7 @@
 ## ✨ Características Principales
 
 ### 🚀 Experiencia de Usuario & Frontend
+
 - **Motor Drag & Drop (@dnd-kit):** Movimiento fluido de tarjetas entre columnas y reordenamiento vertical con elevación visual (`DragOverlay`) y restricciones de puntero.
 - **Resumen del Sprint en Vivo:** Cálculo dinámico de métricas (Tareas totales, completadas, Story Points acumulados `89/120` y barra de progreso porcentual).
 - **Gestión de Tareas y Subtareas:** Tipos (`Feature`, `Bug`, `Task`, `Refactor`), prioridades (`Urgente`, `Alta`, `Media`, `Baja`), Story Points Fibonacci y checklist interactivo.
@@ -25,6 +26,7 @@
 - **Persistencia en LocalStorage:** Sincronización automática de estado mediante Zustand Persist con opción de reinicio de demo.
 
 ### 🛡️ Modelo de Base de Datos Relacional
+
 - Esquema relacional 3NF completo compatible con MySQL 8.4 LTS en [`database/README.md`](./database/README.md) con 9 tablas (`users`, `teams`, `projects`, `sprints`, `columns`, `tasks`, `subtasks`, `tags`).
 
 ---
@@ -54,8 +56,7 @@
 │   ├── App.tsx                    # Shell principal
 │   └── main.tsx                   # Entrada React 19
 ├── index.html                     # Entrypoint HTML5
-├── BLUEPRINT.md                   # Especificación técnica
-├── DECISIONS.md                   # Registro de decisiones de arquitectura
+├── package.json                   # Scripts y dependencias
 └── vite.config.ts                 # Configuración de Vite y Tailwind v4
 ```
 
@@ -64,6 +65,7 @@
 ## ⚡ Guía de Inicio Rápido
 
 ### 1. Clonar e Instalar Dependencias
+
 ```bash
 git clone https://github.com/alxnrocha/kanban-board.git
 cd kanban-board
@@ -71,6 +73,7 @@ npm install
 ```
 
 ### 2. Iniciar en Modo Desarrollo
+
 ```bash
 npm run dev
 ```

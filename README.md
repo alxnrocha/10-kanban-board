@@ -13,83 +13,83 @@
 
 ---
 
-## ✨ Características Principales
+## 🌟 Visión General & Propuesta de Valor
 
-### 🚀 Experiencia de Usuario & Frontend
+**DevFlow Kanban** es una aplicación web inspirada en los entornos de trabajo ágiles de Linear y GitHub Projects.
 
-- **Motor Drag & Drop (@dnd-kit):** Movimiento fluido de tarjetas entre columnas y reordenamiento vertical con elevación visual (`DragOverlay`) y restricciones de puntero.
-- **Resumen del Sprint en Vivo:** Cálculo dinámico de métricas (Tareas totales, completadas, Story Points acumulados `89/120` y barra de progreso porcentual).
-- **Gestión de Tareas y Subtareas:** Tipos (`Feature`, `Bug`, `Task`, `Refactor`), prioridades (`Urgente`, `Alta`, `Media`, `Baja`), Story Points Fibonacci y checklist interactivo.
-- **Búsqueda Rápida & Filtros:** Búsqueda en tiempo real con atajo de teclado (`⌘ K` / `Ctrl+K`) y filtros en 1 clic (`Mis tareas`, `Features`, `Bugs`, `Alta Prioridad`).
-- **Navegación Móvil Adaptativa:** Selector horizontal de pestañas de columnas para smartphones (<520px).
-- **Persistencia en LocalStorage:** Sincronización automática de estado mediante Zustand Persist con opción de reinicio de demo.
+Facilita la planificación de sprints mediante arrastre interactivo de tarjetas entre columnas, estimación con Story Points Fibonacci, desglose de subtareas y control de productividad en tiempo real.
 
 ---
 
-## 🏛️ Estructura del Proyecto
+## ✨ Características Principales
+
+- **Motor Drag & Drop (@dnd-kit):** Movimiento fluido de tarjetas entre columnas y reordenamiento vertical con elevación visual (`DragOverlay`).
+- **Resumen del Sprint en Vivo:** Cálculo de métricas (Tareas totales, completadas, Story Points acumulados `89/120` y barra de progreso porcentual).
+- **Gestión de Tareas y Subtareas:** Tipos (`Feature`, `Bug`, `Task`, `Refactor`), prioridades (`Urgente`, `Alta`, `Media`, `Baja`), Story Points y checklist interactivo.
+- **Búsqueda Rápida & Filtros:** Búsqueda en tiempo real con atajo de teclado (`⌘ K` / `Ctrl+K`) y filtros rápidos.
+- **Navegación Móvil Adaptativa:** Selector horizontal de columnas para pantallas pequeñas.
+
+---
+
+## 🏛️ Arquitectura del Proyecto
 
 ```text
 10-kanban-board/
-├── .github/workflows/ci.yml       # Pipeline de CI y Deploy automático en Pages
+├── index.html
 ├── src/
-│   ├── components/
-│   │   ├── kanban/                # KanbanBoard, KanbanColumn, TaskCard, TaskModal
-│   │   ├── layout/                # AppLayout, Header, Sidebar, QuickFilterBar, SprintSummary
-│   │   └── ui/                    # Badge, Button, Card, Dialog, Input, Textarea
-│   ├── store/                     # kanbanStore.ts (Zustand con persistencia)
-│   ├── test/                      # Pruebas unitarias con Vitest
-│   ├── types/                     # Tipos de dominio e interfaces
-│   ├── utils/                     # Utilidades y dataset inicial
-│   ├── App.tsx                    # Shell principal
-│   └── main.tsx                   # Entrada React 19
-├── index.html                     # Entrypoint HTML5
-├── package.json                   # Scripts y dependencias
-└── vite.config.ts                 # Configuración de Vite y Tailwind v4
+│   ├── components/                # KanbanBoard, Column, TaskCard, TaskModal
+│   ├── types/                     # Tipos TypeScript para tareas y columnas
+│   ├── App.tsx                    # Componente raíz
+│   └── main.tsx                   # Punto de entrada
+├── LICENSE
+├── package.json
+└── vite.config.ts
 ```
 
 ---
 
-## ⚡ Guía de Inicio Rápido
+## 🚀 Instalación y Puesta en Marcha
 
-### 1. Clonar e Instalar Dependencias
+### Prerrequisitos
 
-```bash
-git clone https://github.com/alxnrocha/kanban-board.git
-cd kanban-board
-npm install
-```
+- Node.js `>= 20.0.0`
+- npm `>= 10.0.0`
 
-### 2. Iniciar en Modo Desarrollo
+### Pasos
 
-```bash
-npm run dev
-```
+1. **Clonar el repositorio:**
+
+   ```bash
+   git clone https://github.com/alxnrocha/kanban-board.git
+   cd kanban-board
+   ```
+
+2. **Instalar dependencias:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Ejecutar en modo desarrollo:**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Compilar para producción:**
+   ```bash
+   npm run build
+   ```
 
 ---
 
-## 🧪 Calidad de Código y Pruebas
+## 🛡️ Calidad de Código & Testing
 
-```bash
-# Ejecutar suite de pruebas con Vitest
-npm test
-
-# Verificación de tipos TypeScript
-npm run typecheck
-
-# Linter Oxlint
-npm run lint
-
-# Formatear código con Prettier
-npm run format
-
-# Compilar para producción
-npm run build
-```
+- **Linter & Typecheck:** Oxlint y TypeScript en modo estricto.
+- **Accesibilidad (a11y):** Soporte de teclado completo y contraste WCAG 2.1 AA.
 
 ---
 
 ## 📄 Licencia
 
-Este proyecto está bajo la Licencia MIT. Consulte el archivo [LICENSE](./LICENSE) para más detalles.
-
-**Autor:** [Alexandre Rocha](https://github.com/alxnrocha)
+Este proyecto se encuentra bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.

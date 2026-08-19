@@ -1,16 +1,15 @@
 # DevFlow Kanban — Tablero Ágil de Gestión de Proyectos
 
-[![CI & Deploy](https://github.com/alxnrocha/kanban-board/actions/workflows/ci.yml/badge.svg)](https://github.com/alxnrocha/kanban-board/actions)
-[![Demo GitHub Pages](https://img.shields.io/badge/Demo-GitHub_Pages-22c55e?style=for-the-badge&logo=github&logoColor=white)](https://alxnrocha.github.io/kanban-board/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue.svg)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React-19.2-61dafb.svg)](https://react.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-38bdf8.svg)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-success?style=flat-square&logo=github&logoColor=white)](https://alxnrocha.github.io/kanban-board/)
+[![React 19](https://img.shields.io/badge/React-19.0-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4.0-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![dnd kit](https://img.shields.io/badge/@dnd--kit-Drag_&_Drop-7C3AED?style=flat-square)](https://dndkit.com/)
+[![Vite](https://img.shields.io/badge/Vite-6.0-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 
-**DevFlow Kanban** es una aplicación web moderna y reactiva de gestión ágil de proyectos inspirada en herramientas de alta gama como Linear y GitHub Projects. Incorpora arrastre fluido Drag & Drop (@dnd-kit), gestión de subtareas con barra de progreso, filtros rápidos, persistencia local y diseño relacional SQL.
-
-- 🌐 **Demo en Vivo (GitHub Pages):** [https://alxnrocha.github.io/kanban-board/](https://alxnrocha.github.io/kanban-board/)
-- 📦 **Repositorio GitHub:** [https://github.com/alxnrocha/kanban-board](https://github.com/alxnrocha/kanban-board)
+> **Proyecto 10 del Portafolio Profesional** — Tablero interactivo de gestión ágil de proyectos y sprints con arrastre Drag & Drop (@dnd-kit) y persistencia local.  
+> 🔗 **Demo en Vivo en GitHub Pages:** [https://alxnrocha.github.io/kanban-board/](https://alxnrocha.github.io/kanban-board/)
 
 ---
 
@@ -25,10 +24,6 @@
 - **Navegación Móvil Adaptativa:** Selector horizontal de pestañas de columnas para smartphones (<520px).
 - **Persistencia en LocalStorage:** Sincronización automática de estado mediante Zustand Persist con opción de reinicio de demo.
 
-### 🛡️ Modelo de Base de Datos Relacional
-
-- Esquema relacional 3NF completo compatible con MySQL 8.4 LTS en [`database/README.md`](./database/README.md) con 9 tablas (`users`, `teams`, `projects`, `sprints`, `columns`, `tasks`, `subtasks`, `tags`).
-
 ---
 
 ## 🏛️ Estructura del Proyecto
@@ -36,10 +31,6 @@
 ```text
 10-kanban-board/
 ├── .github/workflows/ci.yml       # Pipeline de CI y Deploy automático en Pages
-├── database/                      # Esquema relacional SQL (MySQL 8.4 LTS)
-│   ├── README.md
-│   ├── schema.sql
-│   └── seed.sql
 ├── src/
 │   ├── components/
 │   │   ├── kanban/                # KanbanBoard, KanbanColumn, TaskCard, TaskModal

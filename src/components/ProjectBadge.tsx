@@ -32,10 +32,13 @@ export const ProjectBadge: React.FC = () => {
         boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5)',
         color: '#f0f6fc',
         fontFamily:
-          '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+          '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif',
         fontSize: '13px',
+        letterSpacing: 'normal',
+        lineHeight: 1.4,
         userSelect: 'none',
         boxSizing: 'border-box',
+        textAlign: 'left',
       }}
     >
       {/* Header */}
@@ -58,6 +61,9 @@ export const ProjectBadge: React.FC = () => {
             overflow: 'hidden',
             textOverflow: 'ellipsis',
             whiteSpace: 'nowrap',
+            fontFamily:
+              '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif',
+            letterSpacing: 'normal',
           }}
         >
           DevFlow Kanban
@@ -76,6 +82,8 @@ export const ProjectBadge: React.FC = () => {
               fontWeight: 800,
               letterSpacing: '0.5px',
               textTransform: 'uppercase',
+              fontFamily:
+                '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif',
             }}
           >
             <svg
@@ -136,7 +144,7 @@ export const ProjectBadge: React.FC = () => {
             color: '#58a6ff',
             textDecoration: 'underline',
             fontSize: '12px',
-            fontFamily: 'monospace',
+            fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
             wordBreak: 'break-all',
             display: 'block',
           }}
@@ -146,7 +154,16 @@ export const ProjectBadge: React.FC = () => {
       </div>
 
       {/* Description */}
-      <p style={{ color: '#8b949e', fontSize: '11px', lineHeight: 1.4, margin: '0 0 12px 0' }}>
+      <p
+        style={{
+          color: '#8b949e',
+          fontSize: '11px',
+          lineHeight: 1.4,
+          margin: '0 0 12px 0',
+          fontFamily:
+            '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif',
+        }}
+      >
         Tabuleiro Kanban Ágil & Sprints com Drag & Drop • Desenvolvido por{' '}
         <a
           href="https://github.com/alxnrocha"
@@ -168,6 +185,8 @@ export const ProjectBadge: React.FC = () => {
           justifyContent: 'space-between',
           fontSize: '10px',
           color: '#8b949e',
+          fontFamily:
+            '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif',
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -192,7 +211,14 @@ export const ProjectBadge: React.FC = () => {
             ATIVO
           </span>
           <span style={{ color: '#484f58' }}>|</span>
-          <span style={{ color: '#c9d1d9', fontFamily: 'monospace' }}>⑂ main</span>
+          <span
+            style={{
+              color: '#c9d1d9',
+              fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+            }}
+          >
+            ⑂ main
+          </span>
         </div>
         <span>Atualizado recentemente</span>
       </footer>

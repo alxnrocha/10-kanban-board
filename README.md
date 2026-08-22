@@ -1,48 +1,59 @@
 # DevFlow Kanban — Tablero Ágil de Gestión de Proyectos
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-success?style=flat-square&logo=github&logoColor=white)](https://alxnrocha.github.io/kanban-board/)
-[![React 19](https://img.shields.io/badge/React-19.0-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4.0-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![dnd kit](https://img.shields.io/badge/@dnd--kit-Drag_&_Drop-7C3AED?style=flat-square)](https://dndkit.com/)
-[![Vite](https://img.shields.io/badge/Vite-6.0-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
+<div align="center">
 
-> **Proyecto 10 del Portafolio Profesional** — Tablero interactivo de gestión ágil de proyectos y sprints con arrastre Drag & Drop (@dnd-kit) y persistencia local.  
-> 🔗 **Demo en Vivo en GitHub Pages:** [https://alxnrocha.github.io/kanban-board/](https://alxnrocha.github.io/kanban-board/)
+![React 19](https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![dnd kit](https://img.shields.io/badge/@dnd--kit-Drag%20%26%20Drop-7C3AED?style=for-the-badge)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-6.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Deploy](https://img.shields.io/badge/Deploy-GitHub%20Pages-22C55E?style=for-the-badge&logo=github&logoColor=white)
+
+**Tablero interactivo de gestión ágil de proyectos y sprints inspirado en Linear y GitHub Projects con arrastre fluido Drag & Drop (@dnd-kit), Story Points Fibonacci y persistencia local.**
+
+[🚀 Demo en Vivo](https://alxnrocha.github.io/kanban-board/) • [📂 Repositorio en GitHub](https://github.com/alxnrocha/kanban-board)
+
+</div>
 
 ---
 
-## 🌟 Visión General & Propuesta de Valor
+## 🏛️ Arquitectura y Flujo de Interacción
 
-**DevFlow Kanban** es una aplicación web inspirada en los entornos de trabajo ágiles de Linear y GitHub Projects.
-
-Facilita la planificación de sprints mediante arrastre interactivo de tarjetas entre columnas, estimación con Story Points Fibonacci, desglose de subtareas y control de productividad en tiempo real.
+```mermaid
+graph TD
+    User([👤 Desarrollador / Product Manager]) --> Board[DevFlow Board: Contexto DndContext]
+    Board --> SprintBanner[SprintBanner: Story Points, Progreso & Velocidad]
+    Board --> FilterBar[FilterBar: Búsqueda ⌘K, Filtro por Tipo, Prioridad & Asignado]
+    Board --> Columns[Columnas: Backlog ➔ En Progreso ➔ Revisión ➔ Concluido]
+    Columns --> SortableTask[SortableTask: Arrastre Vertical & Transferencia Entre Columnas]
+    SortableTask --> TaskModal[TaskModal: Checklist de Subtareas, Story Points & Tags]
+    Board <--> Storage[(LocalStorage: Sincronización Automática)]
+```
 
 ---
 
 ## ✨ Características Principales
 
-- **Motor Drag & Drop (@dnd-kit):** Movimiento fluido de tarjetas entre columnas y reordenamiento vertical con elevación visual (`DragOverlay`).
+- **Motor Drag & Drop (@dnd-kit):** Movimiento fluido de tarjetas entre columnas y reordenamiento vertical con elevación visual (`DragOverlay`) y sensores accesibles.
 - **Resumen del Sprint en Vivo:** Cálculo de métricas (Tareas totales, completadas, Story Points acumulados `89/120` y barra de progreso porcentual).
 - **Gestión de Tareas y Subtareas:** Tipos (`Feature`, `Bug`, `Task`, `Refactor`), prioridades (`Urgente`, `Alta`, `Media`, `Baja`), Story Points y checklist interactivo.
-- **Búsqueda Rápida & Filtros:** Búsqueda en tiempo real con atajo de teclado (`⌘ K` / `Ctrl+K`) y filtros rápidos.
-- **Navegación Móvil Adaptativa:** Selector horizontal de columnas para pantallas pequeñas.
+- **Búsqueda Rápida & Filtros:** Búsqueda en tiempo real con atajo de teclado (`⌘K` / `Ctrl+K`) y filtros rápidos por etiquetas y asignados.
+- **Navegación Móvil Adaptativa:** Selector horizontal de columnas para pantallas pequeñas y controles táctiles optimizados.
 
 ---
 
-## 🏛️ Arquitectura del Proyecto
+## 🗂️ Estructura del Proyecto
 
 ```text
 10-kanban-board/
 ├── index.html
 ├── src/
-│   ├── components/                # KanbanBoard, Column, TaskCard, TaskModal
+│   ├── components/                # KanbanBoard, Column, TaskCard, TaskModal, SprintBanner
 │   ├── types/                     # Tipos TypeScript para tareas y columnas
-│   ├── App.tsx                    # Componente raíz
-│   └── main.tsx                   # Punto de entrada
-├── LICENSE
+│   ├── App.tsx                    # Componente raíz con estado de tablero
+│   └── main.tsx                   # Entrada principal React 19
 ├── package.json
+├── tsconfig.json
 └── vite.config.ts
 ```
 
@@ -55,41 +66,38 @@ Facilita la planificación de sprints mediante arrastre interactivo de tarjetas 
 - Node.js `>= 20.0.0`
 - npm `>= 10.0.0`
 
-### Pasos
+### Ejecución Local
 
-1. **Clonar el repositorio:**
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/alxnrocha/kanban-board.git
+cd kanban-board
 
-   ```bash
-   git clone https://github.com/alxnrocha/kanban-board.git
-   cd kanban-board
-   ```
+# 2. Instalar dependencias
+npm install
 
-2. **Instalar dependencias:**
+# 3. Iniciar servidor de desarrollo
+npm run dev
 
-   ```bash
-   npm install
-   ```
-
-3. **Ejecutar en modo desarrollo:**
-
-   ```bash
-   npm run dev
-   ```
-
-4. **Compilar para producción:**
-   ```bash
-   npm run build
-   ```
+# 4. Compilar para producción
+npm run build
+```
 
 ---
 
-## 🛡️ Calidad de Código & Testing
+## 🛠️ Tecnologías Utilizadas
 
-- **Linter & Typecheck:** Oxlint y TypeScript en modo estricto.
-- **Accesibilidad (a11y):** Soporte de teclado completo y contraste WCAG 2.1 AA.
+| Capa            | Tecnología      | Aspectos Clave                                                 |
+| --------------- | --------------- | -------------------------------------------------------------- |
+| **Framework**   | React 19        | Hooks de estado y optimización de renderizado de columnas      |
+| **Lenguaje**    | TypeScript 5.8  | Tipado estricto para entidades de sprint, tareas y eventos dnd |
+| **Drag & Drop** | @dnd-kit        | Sensores de puntero y teclado, colisiones ortogonales          |
+| **Estilos**     | Tailwind CSS v4 | Obsidian Dark / Modern Slate theme con micro-animaciones       |
+| **Bundler**     | Vite 6.0        | Compilación ultrarrápida y optimización para web               |
+| **Despliegue**  | GitHub Pages    | Despliegue estático continuo y optimizado                      |
 
 ---
 
-## 📄 Licencia
-
-Este proyecto se encuentra bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+<div align="center">
+  <sub>Desarrollado con dedicación por <a href="https://github.com/alxnrocha">Alex Rocha</a> • Proyecto 10 del Portafolio Profesional Frontend.</sub>
+</div>

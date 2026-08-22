@@ -1,3 +1,4 @@
+import { ProjectBadge } from './components/ProjectBadge';
 import React from 'react';
 import { AppLayout } from './components/layout';
 import { KanbanBoard } from './components/kanban';
